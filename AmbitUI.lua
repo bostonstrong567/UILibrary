@@ -40,9 +40,8 @@ ImageButton.Parent = AmbitUI
 ImageButton.Active = false
 ImageButton.BackgroundColor3 = Color3.fromRGB(22, 21, 50)
 ImageButton.BorderColor3 = Color3.fromRGB(13, 20, 26)
-ImageButton.Position = UDim2.new(0.582533121, 0, 0.416041285, 0)
-ImageButton.Size = UDim2.new(0.0647, 0, 0.116999999, 0)
-ImageButton.ZIndex = 999999999
+ImageButton.Position = UDim2.new(0.535855472, 0, 0.389526129, 0)
+ImageButton.Size = UDim2.new(0.0644549206, 0, 0.111773752, 0)
 ImageButton.Image = "rbxassetid://10491772620"
 
 UICorner.CornerRadius = UDim.new(0, 99999)
@@ -201,7 +200,7 @@ Frame_2.BackgroundColor3 = Color3.fromRGB(43, 42, 93)
 Frame_2.BorderSizePixel = 0
 Frame_2.Position = UDim2.new(0.253361702, 0, 0.342036903, 0)
 Frame_2.Rotation = 45.000
-Frame_2.Size = UDim2.new(0.490748078, 0, 0.490871996, 0)
+Frame_2.Size = UDim2.new(0.490748078, 0, 0.490872025, 0)
 Frame_2.ZIndex = -1
 
 UIAspectRatioConstraint.Parent = ImageButton
@@ -209,7 +208,7 @@ UIAspectRatioConstraint.AspectRatio = 0.994
 
 -- Scripts:
 
-local function HKUCZ_fake_script() -- TogggleFrame.Toggle Script 
+local function HLIW_fake_script() -- TogggleFrame.Toggle Script 
 	local script = Instance.new('LocalScript', TogggleFrame)
 
 	local TweenService = game:GetService("TweenService")
@@ -270,8 +269,8 @@ local function HKUCZ_fake_script() -- TogggleFrame.Toggle Script
 		end
 	end)
 end
-coroutine.wrap(HKUCZ_fake_script)()
-local function PBXORLB_fake_script() -- TogggleFrame_2.Toggle Script 
+coroutine.wrap(HLIW_fake_script)()
+local function WVXOYL_fake_script() -- TogggleFrame_2.Toggle Script 
 	local script = Instance.new('LocalScript', TogggleFrame_2)
 
 	local TweenService = game:GetService("TweenService")
@@ -332,27 +331,8 @@ local function PBXORLB_fake_script() -- TogggleFrame_2.Toggle Script
 		end
 	end)
 end
-coroutine.wrap(PBXORLB_fake_script)()
-local function ICTTKF_fake_script() -- button.LocalScript 
-	local script = Instance.new('LocalScript', button)
-
-	local mainFrame = script.Parent
-	local funcFrame = mainFrame:FindFirstChild("funcFrame")
-	funcFrame.Visible = false
-	
-	local toggle = false
-	
-	mainFrame.MouseButton1Click:Connect(function()
-		if not toggle then
-			funcFrame.Visible = true
-		else
-			funcFrame.Visible = false
-		end
-		toggle = not toggle
-	end)
-end
-coroutine.wrap(ICTTKF_fake_script)()
-local function YJIF_fake_script() -- ImageButton.LocalScript 
+coroutine.wrap(WVXOYL_fake_script)()
+local function HOFP_fake_script() -- ImageButton.LocalScript 
 	local script = Instance.new('LocalScript', ImageButton)
 
 	local TweenService = game:GetService("TweenService")
@@ -438,6 +418,17 @@ local function YJIF_fake_script() -- ImageButton.LocalScript
 			cloneChild.Image = v
 			cloneChild.Rotation = cloneChild.Rotation - 45
 			table.insert(framesTable, Clone)
+			
+			cloneChild.MouseButton1Click:Connect(function()
+				repeat task.wait() until cloneChild:WaitForChild("funcFrame")
+				if not toggle then
+					cloneChild:FindFirstChild("funcFrame").Visible = true
+				else
+					cloneChild:FindFirstChild("funcFrame").Visible = false
+				end
+				toggle = not toggle
+			end)
+			
 		end
 		
 		for _, clone in pairs(framesTable) do
@@ -466,4 +457,4 @@ local function YJIF_fake_script() -- ImageButton.LocalScript
 		end
 	end)
 end
-coroutine.wrap(YJIF_fake_script)()
+coroutine.wrap(HOFP_fake_script)()
